@@ -2,30 +2,45 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleUnit : MonoBehaviour
 {
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI hpText;
-    private int _maxHp;
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private Slider hpSlider;
+    [SerializeField] private TextMeshProUGUI hpText;
+    private UnitSO _unitSO;
     private int _currentHp;
-    
-    public void setHUD(UnitSO unit)
+    private BattleMove _currentMove;
+    private bool _charged;
+
+    public BattleMove CurrentMove { get => _currentMove; set => _currentMove = value; }
+    public bool Charged { get => _charged; set => _charged = value; }
+
+    public void SetHUD(UnitSO unit)
     {
         nameText.text = unit.unitName;
-        hpText.text = unit.maxHp.ToString();
-        setHP();
+        _unitSO = unit;
+        _currentHp = _unitSO.maxHp;
+        SetHP();
     }
-    public void setHP()
+    public void SetHP()
     {
-        hpText.text = _currentHp + "/" + _maxHp;
+        hpText.text = _currentHp + "/" + _unitSO.maxHp;
+        hpSlider.normalizedValue = (float)_currentHp / _unitSO.maxHp;
     }
     public bool TakeDamage(int dmg)
     {
         _currentHp -= dmg;
+        SetHP();
         if (_currentHp <= 0)
             return true;
         else
             return false;
+    }
+
+    public UnitSO GetSO()
+    {
+        return _unitSO;
     }
 }

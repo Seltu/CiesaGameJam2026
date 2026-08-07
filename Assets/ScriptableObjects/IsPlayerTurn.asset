@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 420f7dab2168a8541a421ebe92914fcf, type: 3}
-  m_Name: Boitata
+  m_Script: {fileID: 11500000, guid: 85b68dc180da30f4ba6ed5f0d57c13d4, type: 3}
+  m_Name: IsPlayerTurn
   m_EditorClassIdentifier: 
-  unitName: "Boitat\xE1 "
-  maxHp: 15
-  attack: 2
-  special: 4
-  defense: 1
-  speed: 4
+  value: 1

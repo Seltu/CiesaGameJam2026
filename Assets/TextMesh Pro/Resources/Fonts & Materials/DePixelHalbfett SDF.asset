@@ -133,7 +133,7 @@ MonoBehaviour:
     m_AscentLine: 39.858
     m_CapLine: 40
     m_MeanLine: 31
-    m_Baseline: 0
+    m_Baseline: -4
     m_DescentLine: -8.853
     m_SuperscriptOffset: 39.858
     m_SuperscriptSize: 0.5
@@ -5078,8 +5078,8 @@ Texture2D:
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
+    m_FilterMode: 0
+    m_Aniso: 0
     m_MipBias: 0
     m_WrapU: 0
     m_WrapV: 0
