@@ -78,7 +78,9 @@ public class GameManager : MonoBehaviour
     public void SetupDay()
     {
         permanentParameters.daysPassed++;
-        if(daysUntilBattle > 1)
+        if(permanentParameters.currentLegend != null) permanentParameters.currentLegend.age++;
+
+        if (daysUntilBattle > 1)
         {
             daysUntilBattle--;
         }
@@ -128,7 +130,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            permanentParameters.currentLegend.age++;
+
             var legendController = FindFirstObjectByType<LegendController>();
             legendController.CheckForStamina();
         }

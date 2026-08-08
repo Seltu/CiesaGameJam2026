@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 8227867960300095260}
   - component: {fileID: 3184336298108881709}
   - component: {fileID: 4749002589029872520}
+  - component: {fileID: 2794309448925400170}
   m_Layer: 5
   m_Name: TrainingIcon
   m_TagString: Untagged
@@ -192,6 +193,18 @@ MonoBehaviour:
   trainingOption: {fileID: 0}
   image: {fileID: 8227867960300095260}
   sucessRate: {fileID: 8298831956658470573}
+--- !u!114 &2794309448925400170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5218272063064279463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44a3a00ff1e6f70449cb27400ed5b3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6477129647588508084
 GameObject:
   m_ObjectHideFlags: 0
