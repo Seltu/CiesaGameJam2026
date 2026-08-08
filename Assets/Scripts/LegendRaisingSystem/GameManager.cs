@@ -49,6 +49,11 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (permanentParameters.daysPassed < 3)
+            daysUntilBattle = 3;
+        else
+            daysUntilBattle = 4;
+        
         AudioManager.instance.PlayOneShotTheme(AudioManager.instance.trainingTheme);
         SetupDay();
     }
@@ -78,22 +83,24 @@ public class GameManager : MonoBehaviour
 
     public void SetupDay()
     {
-        var legendController = FindFirstObjectByType<LegendController>();
-        legendController.SetLegend(permanentParameters.currentLegend);
-
         permanentParameters.daysPassed++;
-        if(permanentParameters.currentLegend != null) permanentParameters.currentLegend.age++;
-
-        if (daysUntilBattle > 1)
+        if (permanentParameters.currentLegend != null)
         {
-            daysUntilBattle--;
+            var legendController = FindFirstObjectByType<LegendController>();
+            legendController.SetLegend(permanentParameters.currentLegend);
+            permanentParameters.currentLegend.age++;
         }
-        else
+
+        Debug.Log($"ei otaro começou ${daysUntilBattle}");
+
+        daysUntilBattle--;
+        if (daysUntilBattle <= 0)
         {
-            daysUntilBattle = 3;
-            SceneManager.LoadScene("BattleScene");
+            SceneTransitionManager.Instance.ChangeScene("BattleScene");
             return;
         }
+
+        Debug.Log($"ei otaro ${daysUntilBattle}");
 
         stamina = 3;
 
@@ -146,6 +153,7 @@ public class GameManager : MonoBehaviour
 
     public void PassDay()
     {
+        SceneTransitionManager.Instance.CallTransitionOnly();
         SetupDay();
     }
 
@@ -167,6 +175,6 @@ public class GameManager : MonoBehaviour
 
     public void RandomBattle()
     {
-        SceneManager.LoadScene("BattleScene");
+        SceneTransitionManager.Instance.ChangeScene("BattleScene");
     }
 }

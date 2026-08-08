@@ -322,7 +322,7 @@ public class BattleSystem : MonoBehaviour
             PermanentParameterManager.instance.permanentParameters.hasWon = false;
         }
 
-        SceneManager.LoadScene("TrainingScene");
+        StartCoroutine(EndBattleCoroutine());
     }
 
     private void PlayerTurn()
@@ -364,5 +364,21 @@ public class BattleSystem : MonoBehaviour
 
         _state = BattleState.CLASH;
         StartCoroutine(ClashTurn());
+    }
+
+    IEnumerator EndBattleCoroutine()
+    {
+        if (_state == BattleState.WON)
+        {
+            AudioManager.instance.PlayOneShotTheme(AudioManager.instance.stageClearTheme);
+        }
+        else if (_state == BattleState.LOST)
+        {
+            AudioManager.instance.PlayOneShotTheme(AudioManager.instance.gameOverTheme);
+        }
+
+        yield return new WaitForSeconds(7f);
+
+        SceneTransitionManager.Instance.ChangeScene("TrainingScene");
     }
 }
