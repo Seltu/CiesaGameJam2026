@@ -12,20 +12,29 @@ public class BattleSystem : MonoBehaviour
 {
     private static WaitForSeconds _waitForSeconds1 = new WaitForSeconds(1f);
     private static WaitForSeconds _waitForSeconds2 = new WaitForSeconds(2f);
-    [SerializeField] private UnitSO playerFile;
-    [SerializeField] private UnitSO enemyFile;
+    [SerializeField] private BattleSetupSO battleSetupSO;
+
+    private UnitSO _playerFile;
+    private UnitSO _enemyFile;
 
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject playerTurnHUD;
+    [SerializeField] private GameObject clashTurnHUD;
 
     [SerializeField] private BattleUnit playerUnit;
     [SerializeField] private BattleUnit enemyUnit;
+
+    [SerializeField] private Image playerBubbleIcon;
+    [SerializeField] private Image enemyBubbleIcon;
 
     [SerializeField] private List<Transform> moveSlots;
     private MoveIconUI[] _selectedMoves;
     private BattleMove[] _enemyMoves;
 
+    [SerializeField] private List<Sprite> moveIconSprites;
+
     private BattleState _state;
+    private bool _bothDefended;
 
     private void Awake()
     {
@@ -40,6 +49,8 @@ public class BattleSystem : MonoBehaviour
     private void Start()
     {
         _state = BattleState.START;
+        _playerFile = battleSetupSO.playerUnit;
+        _enemyFile = battleSetupSO.RandomUnit();
         StartCoroutine(SetupBattle());
     }
 
@@ -47,11 +58,12 @@ public class BattleSystem : MonoBehaviour
     {
         dialogueText.gameObject.SetActive(true);
         playerTurnHUD.gameObject.SetActive(false);
+        clashTurnHUD.gameObject.SetActive(false);
 
-        dialogueText.text = enemyFile.unitName + " te desafia!";
+        dialogueText.text = _enemyFile.unitName + " te desafia!";
 
-        playerUnit.SetHUD(playerFile);
-        enemyUnit.SetHUD(enemyFile);
+        playerUnit.SetHUD(_playerFile);
+        enemyUnit.SetHUD(_enemyFile);
 
         yield return _waitForSeconds2;
 
@@ -66,7 +78,10 @@ public class BattleSystem : MonoBehaviour
             MoveIconUI move = _selectedMoves[i];
             playerUnit.CurrentMove = move.GetMove();
             enemyUnit.CurrentMove = _enemyMoves[i];
-            if(playerFile.speed > enemyFile.speed)
+            playerBubbleIcon.sprite = moveIconSprites[(int)playerUnit.CurrentMove];
+            enemyBubbleIcon.sprite = moveIconSprites[(int)enemyUnit.CurrentMove];
+            _bothDefended = false;
+            if (_playerFile.speed > _enemyFile.speed)
             {
                 yield return StartCoroutine(ProcessMove(playerUnit, enemyUnit));
                 if (_state != BattleState.CLASH) yield break;
@@ -99,13 +114,23 @@ public class BattleSystem : MonoBehaviour
                 break;
             case BattleMove.DEFEND:
             case BattleMove.COUNTER:
+                if (_bothDefended) break;
                 if (target.CurrentMove == BattleMove.DEFEND|| target.CurrentMove == BattleMove.COUNTER)
                 {
                     dialogueText.text = "Ninguém atacou!";
+                    _bothDefended = true;
+                    unit.SetShieldSprite(unit.CurrentMove == BattleMove.COUNTER);
+                    target.SetShieldSprite(target.CurrentMove == BattleMove.COUNTER);
+                    unit.CurrentMove = BattleMove.DEFEND;
+                    target.CurrentMove = BattleMove.DEFEND;
+                    unit.PlayMoveAnimation();
+                    target.PlayMoveAnimation();
                     yield return _waitForSeconds1;
                 }
                 else if (target.CurrentMove == BattleMove.CHARGEUP)
                 {
+                    unit.SetShieldSprite(unit.CurrentMove == BattleMove.COUNTER);
+                    unit.PlayMoveAnimation();
                     if(unit.CurrentMove == BattleMove.DEFEND)
                         if (unit == playerUnit)
                             dialogueText.text = "Seu " + target.GetSO().unitName + " tentou se defender e falhou!";
@@ -129,6 +154,7 @@ public class BattleSystem : MonoBehaviour
         else
             dialogueText.text = unitFile.unitName + " inimigo está carregando seu ataque!";
 
+        unit.PlayMoveAnimation();
         unit.Charged = true;
 
         yield return _waitForSeconds2;
@@ -138,10 +164,21 @@ public class BattleSystem : MonoBehaviour
     {
         var unitFile = unit.GetSO();
         if(unit.CurrentMove == BattleMove.ATTACK)
+        {
             if (unit == playerUnit)
                 dialogueText.text = "Seu " + unitFile.unitName + " atacou!";
             else
                 dialogueText.text = unitFile.unitName + " inimigo atacou!";
+        }
+        unit.SetShieldSprite(true);
+        if (unit.CurrentMove== BattleMove.COUNTER && target.CurrentMove == BattleMove.ATTACK)
+        { // Troca animação pra ataque se estiver counterando um ataque
+            unit.CurrentMove = BattleMove.ATTACK;
+            unit.PlayMoveAnimation();
+            unit.CurrentMove = BattleMove.COUNTER;
+        }
+        else
+            unit.PlayMoveAnimation();
 
         yield return _waitForSeconds1;
 
@@ -151,6 +188,8 @@ public class BattleSystem : MonoBehaviour
         bool isDead = false;
         if (target.CurrentMove == BattleMove.DEFEND)
         {
+            target.SetShieldSprite(false);
+            target.PlayMoveAnimation();
             if(unit == playerUnit)
                 dialogueText.text = "Porém, " + target.GetSO().unitName + " inimigo se defendeu!";
             else
@@ -190,9 +229,11 @@ public class BattleSystem : MonoBehaviour
         else
             dialogueText.text = unitFile.unitName + " inimigo usou um ataque especial!";
 
+        unit.PlayMoveAnimation();
+
         yield return _waitForSeconds1;
 
-        int attackDamage = unit.Charged ? unitFile.attack * 2 : unitFile.attack;
+        int attackDamage = unit.Charged ? unitFile.special * 2 : unitFile.special;
         unit.Charged = false;
 
         bool isDead;
@@ -207,6 +248,8 @@ public class BattleSystem : MonoBehaviour
         }
         else if (target.CurrentMove == BattleMove.DEFEND)
         {
+            target.SetShieldSprite(false);
+            target.PlayMoveAnimation();
             if (unit == playerUnit)
                 dialogueText.text = target.GetSO().unitName + " inimigo se defendeu!";
             else
@@ -238,7 +281,7 @@ public class BattleSystem : MonoBehaviour
         }
         else if (_state == BattleState.LOST)
         {
-            dialogueText.text = "Seu " + playerFile.unitName + " foi derrotado.";
+            dialogueText.text = "Seu " + _playerFile.unitName + " foi derrotado.";
         }
     }
 
@@ -254,6 +297,7 @@ public class BattleSystem : MonoBehaviour
         }
         dialogueText.gameObject.SetActive(false);
         playerTurnHUD.gameObject.SetActive(true);
+        clashTurnHUD.gameObject.SetActive(false);
     }
 
     private void OnMoveDrop(MoveIconUI moveIcon, Transform slotTransform)
@@ -276,6 +320,7 @@ public class BattleSystem : MonoBehaviour
 
         dialogueText.gameObject.SetActive(true);
         playerTurnHUD.gameObject.SetActive(false);
+        clashTurnHUD.gameObject.SetActive(true);
 
         _state = BattleState.CLASH;
         StartCoroutine(ClashTurn());
