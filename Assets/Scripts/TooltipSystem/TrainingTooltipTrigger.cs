@@ -5,7 +5,18 @@ public class TrainingTooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPoin
 {
     public void OnPointerEnter(PointerEventData eventData)
     {
-        var trainingOptionSO = gameObject.GetComponent<TrainingSlot>().trainingOption;
+        TrainingOptionSO trainingOptionSO = null;
+
+        var trainingSlot = gameObject.GetComponent<TrainingSlot>();
+        if (trainingSlot != null)
+        {
+            trainingOptionSO = gameObject.GetComponent<TrainingSlot>().trainingOption;
+        }
+        else
+        {
+            trainingOptionSO = gameObject.GetComponent<TrainingOptionChoiceManager>().trainingOption;
+        }
+
         var statsChangeText = "";
 
         if (trainingOptionSO.hpModifier != 0)

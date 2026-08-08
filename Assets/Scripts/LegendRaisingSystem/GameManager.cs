@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        AudioManager.instance.PlayOneShotTheme(AudioManager.instance.trainingTheme);
         SetupDay();
     }
 
@@ -77,6 +78,9 @@ public class GameManager : MonoBehaviour
 
     public void SetupDay()
     {
+        var legendController = FindFirstObjectByType<LegendController>();
+        legendController.SetLegend(permanentParameters.currentLegend);
+
         permanentParameters.daysPassed++;
         if(permanentParameters.currentLegend != null) permanentParameters.currentLegend.age++;
 

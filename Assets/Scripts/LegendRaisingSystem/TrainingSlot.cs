@@ -34,4 +34,11 @@ public class TrainingSlot : MonoBehaviour, IDropHandler
             Debug.Log("musculação é lá do outro lado");
         }
     }
+
+    public void SetTrainingOption(TrainingOptionSO trainingOptionSO)
+    {
+        trainingOption = trainingOptionSO;
+        image.sprite = trainingOptionSO.icon;
+        sucessRate.text = $"{trainingOption.successRate * 100}%";
+    }
 }

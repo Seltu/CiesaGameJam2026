@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ public class TrainingOptionChoiceManager : MonoBehaviour
     public void GetTrainingOption()
     {
         var newOption = Instantiate(trainingOption);
-        GameManager.instance.trainingOptions[trainingOption.slot].GetComponentInChildren<TrainingSlot>().trainingOption = newOption;
+        GameManager.instance.trainingOptions[newOption.slot].GetComponentInChildren<TrainingSlot>().SetTrainingOption(newOption);
         GameManager.instance.CheckForLegend();
     }
 }

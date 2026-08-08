@@ -49,6 +49,9 @@ public class BattleSystem : MonoBehaviour
 
     private void Start()
     {
+        var musicID = Random.Range(0, AudioManager.instance.stageThemeLoops.Count);
+        AudioManager.instance.PlayAndLoop(AudioManager.instance.stageThemeIntros[musicID], AudioManager.instance.stageThemeLoops[musicID]);
+
         _state = BattleState.START;
         _playerFile = PermanentParameterManager.instance.permanentParameters.currentLegend;
         _enemyFile = battleSetupSO.RandomUnit();
@@ -316,6 +319,7 @@ public class BattleSystem : MonoBehaviour
         {
             dialogueText.text = "Seu " + _playerFile.unitName + " foi derrotado.";
             PermanentParameterManager.instance.permanentParameters.hasBattled = true;
+            PermanentParameterManager.instance.permanentParameters.hasWon = false;
         }
 
         SceneManager.LoadScene("TrainingScene");
