@@ -14,6 +14,11 @@ public class MainMenuManager : MonoBehaviour
         SceneTransitionManager.Instance.ChangeScene("TrainingScene");
     }
 
+    public void BackToMenu()
+    {
+        SceneTransitionManager.Instance.ChangeScene("MenuScene");
+    }
+
     public void StopGame()
     {
         Application.Quit();

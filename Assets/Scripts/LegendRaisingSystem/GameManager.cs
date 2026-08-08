@@ -91,16 +91,12 @@ public class GameManager : MonoBehaviour
             permanentParameters.currentLegend.age++;
         }
 
-        Debug.Log($"ei otaro começou ${daysUntilBattle}");
-
         daysUntilBattle--;
         if (daysUntilBattle <= 0)
         {
             SceneTransitionManager.Instance.ChangeScene("BattleScene");
             return;
         }
-
-        Debug.Log($"ei otaro ${daysUntilBattle}");
 
         stamina = 3;
 
@@ -116,6 +112,13 @@ public class GameManager : MonoBehaviour
         {
             permanentParameters.hasBattled = false;
             permanentParameters.hasWon = false;
+
+            if(permanentParameters.daysPassed > 34)
+            {
+                // Game Clear
+                SceneTransitionManager.Instance.ChangeScene("GameClearScene");
+            }
+
             trainingOptionChoicePanel.SetActive(true);
             
             return;
@@ -130,6 +133,7 @@ public class GameManager : MonoBehaviour
             if(permanentParameters.entityPiety <= 0)
             {
                 // Game Over
+                SceneTransitionManager.Instance.ChangeScene("GameOverScene");
             }
         }
 
