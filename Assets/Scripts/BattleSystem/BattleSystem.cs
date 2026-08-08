@@ -217,6 +217,7 @@ public class BattleSystem : MonoBehaviour
         yield return _waitForSeconds1;
 
         int attackDamage = unit.Charged ? unitFile.attack * 2 : unitFile.attack;
+        attackDamage = Math.Max(attackDamage - target.GetSO().defense, 0);
         unit.Charged = false;
 
         bool isDead = false;
@@ -268,6 +269,7 @@ public class BattleSystem : MonoBehaviour
         yield return _waitForSeconds1;
 
         int attackDamage = unit.Charged ? unitFile.special * 2 : unitFile.special;
+        attackDamage = Math.Max(attackDamage-target.GetSO().defense, 0);
         unit.Charged = false;
 
         bool isDead;
