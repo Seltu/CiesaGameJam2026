@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     {
         // UPDATE UI //
         daysPassedText.text = $"Dia {permanentParameters.daysPassed}";
-        daysUntilBattleText.text = $"{daysUntilBattle} dias até a batalha principal!";
+        daysUntilBattleText.text = $"<color=red>{daysUntilBattle}</color> dias até o torneio!";
         entityPietyText.text = $"{permanentParameters.entityPiety}";
         staminaText.text = $"{stamina}";
         

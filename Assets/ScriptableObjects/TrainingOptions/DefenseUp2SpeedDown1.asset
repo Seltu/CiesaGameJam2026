@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887e86573baa7174e9327c8b2761b8d0, type: 3}
   m_Name: DefenseUp2SpeedDown1
   m_EditorClassIdentifier: 
-  icon: {fileID: 4337046748960614032, guid: c9611d85e72c7094a8ff1fbc19eb8eb8, type: 3}
+  icon: {fileID: 4556617768182904718, guid: 079c0a2aaec853943ae0de45212f0965, type: 3}
   successRate: 1
   optionName: "Auto-Soco T\xE1tico"
-  slot: 1
+  slot: 2
   hpModifier: 0
   attackModifier: 0
   specialModifier: 0

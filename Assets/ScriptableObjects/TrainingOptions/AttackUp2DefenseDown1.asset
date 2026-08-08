@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887e86573baa7174e9327c8b2761b8d0, type: 3}
   m_Name: AttackUp2DefenseDown1
   m_EditorClassIdentifier: 
-  icon: {fileID: 4337046748960614032, guid: c9611d85e72c7094a8ff1fbc19eb8eb8, type: 3}
+  icon: {fileID: -5937764268318024347, guid: 83c4ad8ad841409429c9fd87ce5c045a, type: 3}
   successRate: 1
   optionName: Saco de Pancada Violento
   slot: 1

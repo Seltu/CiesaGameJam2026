@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887e86573baa7174e9327c8b2761b8d0, type: 3}
   m_Name: SpeedUp1
   m_EditorClassIdentifier: 
-  icon: {fileID: 3310002292416464744, guid: c9611d85e72c7094a8ff1fbc19eb8eb8, type: 3}
+  icon: {fileID: -2678394577819576460, guid: d14282ec69fca504ebc1e62be60147ed, type: 3}
   successRate: 0.75
   optionName: Esteira
   slot: 4

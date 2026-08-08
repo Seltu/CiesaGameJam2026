@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887e86573baa7174e9327c8b2761b8d0, type: 3}
   m_Name: SpecialUp1
   m_EditorClassIdentifier: 
-  icon: {fileID: 4296832259876389077, guid: c9611d85e72c7094a8ff1fbc19eb8eb8, type: 3}
+  icon: {fileID: -1675985519901164798, guid: 9ecca1c8f5e37b34f8e24fa6e997be3e, type: 3}
   successRate: 0.8
   optionName: Saco de Pancada
   slot: 3
