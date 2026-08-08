@@ -347,7 +347,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.85
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -451,8 +451,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 0, y: -20}
+  m_AnchoredPosition: {x: 0, y: -75}
+  m_SizeDelta: {x: 0, y: -150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8162988283389444442
 GameObject:
@@ -521,15 +521,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 10/10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: af229c826afc3e04daf0c11580946892, type: 2}
-  m_sharedMaterial: {fileID: -2225684011230065006, guid: af229c826afc3e04daf0c11580946892, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 991f8e3519b1d2a4ab09dc915f9398f0, type: 2}
+  m_sharedMaterial: {fileID: -2225684011230065006, guid: 991f8e3519b1d2a4ab09dc915f9398f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -821,15 +821,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Boitat\xE1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: af229c826afc3e04daf0c11580946892, type: 2}
-  m_sharedMaterial: {fileID: -2225684011230065006, guid: af229c826afc3e04daf0c11580946892, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 991f8e3519b1d2a4ab09dc915f9398f0, type: 2}
+  m_sharedMaterial: {fileID: -2225684011230065006, guid: 991f8e3519b1d2a4ab09dc915f9398f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
