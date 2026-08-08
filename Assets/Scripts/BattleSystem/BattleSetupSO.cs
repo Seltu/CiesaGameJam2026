@@ -9,6 +9,6 @@ public class BattleSetupSO : ScriptableObject
 
     public UnitSO RandomUnit()
     {
-        return randomUnitList[Random.Range(0, randomUnitList.Count)];
+        return Instantiate(randomUnitList[Random.Range(0, randomUnitList.Count)]);
     }
 }

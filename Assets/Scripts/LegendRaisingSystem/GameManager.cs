@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject legendChoicePanel;
     public GameObject trainingOptionChoicePanel;
+    public GameObject randomBattleButton;
 
     [Header("UI")]
     public TMP_Text daysPassedText;
@@ -103,21 +103,24 @@ public class GameManager : MonoBehaviour
     {
         if (permanentParameters.hasWon)
         {
+            permanentParameters.hasBattled = false;
+            permanentParameters.hasWon = false;
             trainingOptionChoicePanel.SetActive(true);
+            
             return;
         }
         else
         {
-            permanentParameters.currentLegend = null;
+            permanentParameters.hasBattled = false;
+            permanentParameters.hasWon = false;
+
+            permanentParameters.currentLegend.age = 10;
             permanentParameters.entityPiety--;
             if(permanentParameters.entityPiety <= 0)
             {
                 // Game Over
             }
         }
-
-        permanentParameters.hasBattled = false;
-        permanentParameters.hasWon = false;
 
         CheckForLegend();
     }
@@ -130,14 +133,36 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-
             var legendController = FindFirstObjectByType<LegendController>();
             legendController.CheckForStamina();
         }
+
+        CheckForRandomBattle();
     }
 
     public void PassDay()
     {
         SetupDay();
+    }
+
+    public void CheckForRandomBattle()
+    {
+        var rng = Random.value;
+
+        if (rng <= 0.5f)
+        {
+            randomBattleButton.GetComponent<Button>().interactable = true;
+            randomBattleButton.GetComponent<Image>().color = Color.green;
+        }
+        else
+        {
+            randomBattleButton.GetComponent<Button>().interactable = false;
+            randomBattleButton.GetComponent<Image>().color = Color.red;
+        }
+    }
+
+    public void RandomBattle()
+    {
+        SceneManager.LoadScene("BattleScene");
     }
 }

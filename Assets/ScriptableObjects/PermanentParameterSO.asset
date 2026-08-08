@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc7d209cef7e404e84272a49ef9589d, type: 3}
   m_Name: PermanentParameterSO
   m_EditorClassIdentifier: 
-  daysPassed: 16
+  daysPassed: 3
   entityPiety: 3
   currentLegend: {fileID: 0}
-  hasBattled: 0
-  hasWon: 0
+  hasBattled: 1
+  hasWon: 1

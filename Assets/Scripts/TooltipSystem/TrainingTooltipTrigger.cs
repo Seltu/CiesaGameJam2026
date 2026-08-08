@@ -13,11 +13,11 @@ public class TrainingTooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPoin
         if (trainingOptionSO.attackModifier != 0)
             statsChangeText += $"\nATQ {(trainingOptionSO.attackModifier >= 0 ? "+" : "")}{trainingOptionSO.attackModifier}";
         if (trainingOptionSO.specialModifier != 0)
-            statsChangeText += $"\nSPC {(trainingOptionSO.specialModifier >= 0 ? "+" : "")} {trainingOptionSO.specialModifier}";
+            statsChangeText += $"\nSPC {(trainingOptionSO.specialModifier >= 0 ? "+" : "")}{trainingOptionSO.specialModifier}";
         if (trainingOptionSO.defenseModifier != 0)
-            statsChangeText += $"\nDEF {(trainingOptionSO.defenseModifier >= 0 ? "+" : "")} {trainingOptionSO.defenseModifier}";
+            statsChangeText += $"\nDEF {(trainingOptionSO.defenseModifier >= 0 ? "+" : "")}{trainingOptionSO.defenseModifier}";
         if (trainingOptionSO.speedModifier != 0)
-            statsChangeText += $"\nVEL {(trainingOptionSO.speedModifier >= 0 ? "+" : "")} {trainingOptionSO.speedModifier}";
+            statsChangeText += $"\nVEL {(trainingOptionSO.speedModifier >= 0 ? "+" : "")}{trainingOptionSO.speedModifier}";
 
         statsChangeText += $"\nChance de sucesso: {trainingOptionSO.successRate * 100}%";
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -49,8 +50,38 @@ public class BattleSystem : MonoBehaviour
     private void Start()
     {
         _state = BattleState.START;
-        _playerFile = battleSetupSO.playerUnit;
+        _playerFile = PermanentParameterManager.instance.permanentParameters.currentLegend;
         _enemyFile = battleSetupSO.RandomUnit();
+
+        // Scale enemy
+        var levels = PermanentParameterManager.instance.permanentParameters.currentLegend.level;
+
+        for (int i = 0; i < levels; i++)
+        {
+            var rng = Random.Range(0, levels);
+
+            switch (rng)
+            {
+                case 0:
+                    _enemyFile.maxHp++;
+                    break;
+                case 1:
+                    _enemyFile.attack++;
+                    break;
+                case 2:
+                    _enemyFile.special++;
+                    break;
+                case 3:
+                    _enemyFile.defense++;
+                    break;
+                case 4:
+                    _enemyFile.speed++;
+                    break;
+            }
+        }
+
+        _enemyFile.level = levels;
+
         StartCoroutine(SetupBattle());
     }
 
@@ -278,11 +309,16 @@ public class BattleSystem : MonoBehaviour
         if (_state == BattleState.WON)
         {
             dialogueText.text = "Você venceu!";
+            PermanentParameterManager.instance.permanentParameters.hasBattled = true;
+            PermanentParameterManager.instance.permanentParameters.hasWon = true;
         }
         else if (_state == BattleState.LOST)
         {
             dialogueText.text = "Seu " + _playerFile.unitName + " foi derrotado.";
+            PermanentParameterManager.instance.permanentParameters.hasBattled = true;
         }
+
+        SceneManager.LoadScene("TrainingScene");
     }
 
     private void PlayerTurn()
