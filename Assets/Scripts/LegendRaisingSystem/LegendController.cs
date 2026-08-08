@@ -44,12 +44,12 @@ public class LegendController : MonoBehaviour
         if(sucess)
         {
             reactionPanel.GetComponent<Image>().color = Color.green;
-            reactionPanel.GetComponentInChildren<TMP_Text>().text = "deu bom o treinao";
+            reactionPanel.GetComponentInChildren<TMP_Text>().text = "deu bom o treinão";
         }
         else
         {
             reactionPanel.GetComponent<Image>().color = Color.red;
-            reactionPanel.GetComponentInChildren<TMP_Text>().text = "puta q parolas";
+            reactionPanel.GetComponentInChildren<TMP_Text>().text = "treino não rendeu";
         }
 
         GameManager.instance.stamina--;

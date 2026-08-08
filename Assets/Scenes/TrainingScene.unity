@@ -1542,9 +1542,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listOfLegends:
-  - {fileID: 11400000, guid: dce54f0fefa618b449e986e04d62a5ea, type: 2}
-  - {fileID: 11400000, guid: f46e6a70151ca184fa80e2a88f93ffea, type: 2}
   - {fileID: 11400000, guid: 14f9fe70af302b24db14b47a13a9d7b3, type: 2}
+  - {fileID: 11400000, guid: dce54f0fefa618b449e986e04d62a5ea, type: 2}
+  - {fileID: 11400000, guid: 5ff7bf86b99de2448ad1a2e373471746, type: 2}
+  - {fileID: 11400000, guid: f46e6a70151ca184fa80e2a88f93ffea, type: 2}
+  - {fileID: 11400000, guid: f7c0d74ba0b8c6942a392c36a8060cf0, type: 2}
+  - {fileID: 11400000, guid: 0c64945ceb1b4d442b2d05c3e92f21ec, type: 2}
+  - {fileID: 11400000, guid: 3899b8ee4d8cbd844b8859105cba64b8, type: 2}
   chosenLegends: []
   legendChoiceHolder:
   - {fileID: 1447537229}
@@ -3649,6 +3653,7 @@ GameObject:
   - component: {fileID: 694360456}
   - component: {fileID: 694360455}
   - component: {fileID: 694360454}
+  - component: {fileID: 694360457}
   m_Layer: 5
   m_Name: MenuPanel
   m_TagString: Untagged
@@ -3715,6 +3720,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &694360457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694360453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3fae76093ee9e4d83d383718dc81d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &700027613
 GameObject:
   m_ObjectHideFlags: 0
@@ -10125,6 +10142,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 694360457}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: BackToMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

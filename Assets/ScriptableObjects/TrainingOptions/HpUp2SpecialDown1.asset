@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887e86573baa7174e9327c8b2761b8d0, type: 3}
   m_Name: HpUp2SpecialDown1
   m_EditorClassIdentifier: 
-  icon: {fileID: -2559463083569719864, guid: c9611d85e72c7094a8ff1fbc19eb8eb8, type: 3}
+  icon: {fileID: 21300000, guid: 3fd59991cc4929648bd0faed4da4211d, type: 3}
   successRate: 1
   optionName: Massagem
   slot: 0

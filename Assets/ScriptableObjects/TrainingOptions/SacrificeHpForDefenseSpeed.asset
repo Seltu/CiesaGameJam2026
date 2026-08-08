@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887e86573baa7174e9327c8b2761b8d0, type: 3}
   m_Name: SacrificeHpForDefenseSpeed
   m_EditorClassIdentifier: 
-  icon: {fileID: -5973860886773078451, guid: c9611d85e72c7094a8ff1fbc19eb8eb8, type: 3}
+  icon: {fileID: 258583257571174945, guid: 988353975d042694ca7480f5f60dc6bb, type: 3}
   successRate: 1
   optionName: Altar dos Atentos
   slot: 5

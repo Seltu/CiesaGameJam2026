@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887e86573baa7174e9327c8b2761b8d0, type: 3}
   m_Name: SpecialUp2DefenseDown1
   m_EditorClassIdentifier: 
-  icon: {fileID: -1675985519901164798, guid: 9ecca1c8f5e37b34f8e24fa6e997be3e, type: 3}
+  icon: {fileID: 21300000, guid: 9ecca1c8f5e37b34f8e24fa6e997be3e, type: 3}
   successRate: 1
   optionName: Livro de Truques Violento
   slot: 3
