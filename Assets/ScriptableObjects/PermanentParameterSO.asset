@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 420f7dab2168a8541a421ebe92914fcf, type: 3}
-  m_Name: Boto
+  m_Script: {fileID: 11500000, guid: 7dc7d209cef7e404e84272a49ef9589d, type: 3}
+  m_Name: PermanentParameterSO
   m_EditorClassIdentifier: 
-  unitSprite: {fileID: 21300000, guid: 9730addb1e0b41d4e88b145993bd87ba, type: 3}
-  unitName: Boto
-  maxHp: 15
-  attack: 1
-  special: 4
-  defense: 0
-  speed: 5
+  daysPassed: 16
+  entityPiety: 3
+  currentLegend: {fileID: 0}
+  hasBattled: 0
+  hasWon: 0

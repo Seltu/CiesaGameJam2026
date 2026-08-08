@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f560e0a82f390439d8685111136c3c, type: 3}
   m_Name: BattleSetupSO
   m_EditorClassIdentifier: 
-  playerUnit: {fileID: 11400000, guid: 862e43c1254b20c49912e4faa54288be, type: 2}
+  playerUnit: {fileID: 11400000, guid: 14f9fe70af302b24db14b47a13a9d7b3, type: 2}
   randomUnitList:
-  - {fileID: 11400000, guid: 862e43c1254b20c49912e4faa54288be, type: 2}
+  - {fileID: 11400000, guid: 14f9fe70af302b24db14b47a13a9d7b3, type: 2}
   - {fileID: 11400000, guid: dce54f0fefa618b449e986e04d62a5ea, type: 2}
   - {fileID: 11400000, guid: f46e6a70151ca184fa80e2a88f93ffea, type: 2}

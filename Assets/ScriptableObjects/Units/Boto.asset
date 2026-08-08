@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 420f7dab2168a8541a421ebe92914fcf, type: 3}
-  m_Name: Boitata
+  m_Name: Boto
   m_EditorClassIdentifier: 
-  unitSprite: {fileID: -1548900560858462702, guid: eb9e5fe9f5529574fa4cde424e968b4b, type: 3}
-  unitName: "Boitat\xE1 "
-  maxHp: 20
-  attack: 3
-  special: 3
-  defense: 1
-  speed: 4
+  eggSprite: {fileID: 21300000, guid: 0c6b77b3b961a3d419c8ce3f6da0b9fd, type: 3}
+  unitSprite: {fileID: 21300000, guid: 9730addb1e0b41d4e88b145993bd87ba, type: 3}
+  unitName: Boto
+  maxHp: 15
+  attack: 1
+  special: 4
+  defense: 0
+  speed: 5
+  age: 0
+  level: 0

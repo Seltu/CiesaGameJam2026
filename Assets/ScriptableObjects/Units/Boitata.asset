@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420f7dab2168a8541a421ebe92914fcf, type: 3}
+  m_Name: Boitata
+  m_EditorClassIdentifier: 
+  eggSprite: {fileID: 21300000, guid: af2c893da5dfd6541bded4309a1aef20, type: 3}
+  unitSprite: {fileID: 21300000, guid: eb9e5fe9f5529574fa4cde424e968b4b, type: 3}
+  unitName: "Boitat\xE1"
+  maxHp: 17
+  attack: 3
+  special: 1
+  defense: 1
+  speed: 5
+  age: 1
+  level: 0
