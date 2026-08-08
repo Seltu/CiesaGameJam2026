@@ -328,9 +328,9 @@ TextureImporter:
       name: UI MAP_8
       rect:
         serializedVersion: 2
-        x: 2221
+        x: 2247
         y: 974
-        width: 306
+        width: 308
         height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
