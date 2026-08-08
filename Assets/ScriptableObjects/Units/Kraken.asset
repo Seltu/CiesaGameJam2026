@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 420f7dab2168a8541a421ebe92914fcf, type: 3}
-  m_Name: Fenix
+  m_Name: Kraken
   m_EditorClassIdentifier: 
-  eggSprite: {fileID: 21300000, guid: 5cea40c3dbe7d8e43a0d54f5de3ef8fd, type: 3}
-  unitSprite: {fileID: 21300000, guid: 44396b62c6026034a8194b9f04bfdd33, type: 3}
-  unitName: "F\xEAnix"
-  maxHp: 17
+  eggSprite: {fileID: 21300000, guid: c279b86eae77e4e4bb30a1ff1ea958e4, type: 3}
+  unitSprite: {fileID: 21300000, guid: b523456427e69c3439f620674c0a38f0, type: 3}
+  unitName: Kraken
+  maxHp: 20
   attack: 3
-  special: 3
-  defense: 0
-  speed: 6
-  age: 0
+  special: 2
+  defense: 1
+  speed: 2
+  age: 1
   level: 0

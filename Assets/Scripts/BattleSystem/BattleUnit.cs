@@ -8,10 +8,17 @@ public class BattleUnit : MonoBehaviour
 {
     [SerializeField] private Image unitImage;
     [SerializeField] private Image shieldImage;
+    [SerializeField] private GameObject chargedEffect;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private Slider hpSlider;
     [SerializeField] private TextMeshProUGUI hpText;
     [SerializeField] private Animator unitAnimator;
+
+    [Header("Stats Text")]
+    [SerializeField] private TextMeshProUGUI attackText;
+    [SerializeField] private TextMeshProUGUI specialAttackText;
+    [SerializeField] private TextMeshProUGUI defenseText;
+    [SerializeField] private TextMeshProUGUI speedText;
 
     [Header("Move Sprites")]
     [SerializeField] private Sprite counterSprite;
@@ -23,7 +30,20 @@ public class BattleUnit : MonoBehaviour
     private bool _charged;
 
     public BattleMove CurrentMove { get => _currentMove; set => _currentMove = value; }
-    public bool Charged { get => _charged; set => _charged = value; }
+    public bool Charged
+    {
+        get => _charged;
+        set
+        {
+            if (_charged == value)
+            {
+                return;
+            }
+
+            _charged = value;
+            chargedEffect.SetActive(value);
+        }
+    }
 
     public void SetHUD(UnitSO unit)
     {
@@ -31,6 +51,10 @@ public class BattleUnit : MonoBehaviour
         nameText.text = unit.unitName;
         _unitSO = unit;
         _currentHp = _unitSO.maxHp;
+        attackText.text = _unitSO.attack.ToString();
+        specialAttackText.text = _unitSO.special.ToString();
+        defenseText.text = _unitSO.defense.ToString();
+        speedText.text = _unitSO.speed.ToString();
         SetHP();
     }
     public void SetHP()

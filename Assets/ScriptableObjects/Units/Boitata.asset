@@ -15,10 +15,10 @@ MonoBehaviour:
   eggSprite: {fileID: 21300000, guid: af2c893da5dfd6541bded4309a1aef20, type: 3}
   unitSprite: {fileID: 21300000, guid: eb9e5fe9f5529574fa4cde424e968b4b, type: 3}
   unitName: "Boitat\xE1"
-  maxHp: 17
-  attack: 3
-  special: 1
+  maxHp: 15
+  attack: 4
+  special: 3
   defense: 1
-  speed: 5
+  speed: 4
   age: 1
   level: 0

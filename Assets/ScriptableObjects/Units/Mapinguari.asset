@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 420f7dab2168a8541a421ebe92914fcf, type: 3}
-  m_Name: Fenix
+  m_Name: Mapinguari
   m_EditorClassIdentifier: 
-  eggSprite: {fileID: 21300000, guid: 5cea40c3dbe7d8e43a0d54f5de3ef8fd, type: 3}
-  unitSprite: {fileID: 21300000, guid: 44396b62c6026034a8194b9f04bfdd33, type: 3}
-  unitName: "F\xEAnix"
-  maxHp: 17
-  attack: 3
-  special: 3
+  eggSprite: {fileID: 21300000, guid: ab2800ce227c7a84dadb68af7c11c526, type: 3}
+  unitSprite: {fileID: 21300000, guid: 7af312ed7a9139249aa659b2921e11f3, type: 3}
+  unitName: Mapinguari
+  maxHp: 20
+  attack: 4
+  special: 1
   defense: 0
-  speed: 6
-  age: 0
+  speed: 4
+  age: 1
   level: 0
