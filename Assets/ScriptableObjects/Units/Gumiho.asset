@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 420f7dab2168a8541a421ebe92914fcf, type: 3}
-  m_Name: Kumiho
+  m_Name: Gumiho
   m_EditorClassIdentifier: 
   eggSprite: {fileID: 21300000, guid: 74cf86f0e69a0b745b43d0c8225eab05, type: 3}
   unitSprite: {fileID: 21300000, guid: 354ef2f2a0fe9814ba1bc699083675d0, type: 3}
-  unitName: Kumiho
+  unitName: Gumiho
   maxHp: 18
   attack: 3
   special: 3
